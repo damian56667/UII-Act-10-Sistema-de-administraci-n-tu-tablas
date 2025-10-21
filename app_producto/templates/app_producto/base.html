@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Backen Perfumeria - Productos</title>
+
+    <!-- Bootstrap CSS local (tu archivo) -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome CDN (primario) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Bootstrap Icons (fallback si FA no carga o prefieres usar estos) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <style>
+      /* pequeño ajuste para que los iconos alineen bien en el navbar */
+      .navbar .bi, .navbar .fa { vertical-align: middle; margin-right: 6px; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'index' %}">
+      <!-- Intentamos Font Awesome; si no aparece, usamos bootstrap icon como fallback visible si modificas clases abajo -->
+      <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+      Backen Perfumeria
+    </a>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+           <a class="nav-link" href="{% url 'index' %}">
+             <i class="fa-solid fa-list"></i> Todos los Productos
+           </a>
+        </li>
+        <li class="nav-item">
+           <a class="nav-link" href="{% url 'add' %}">
+             <i class="fa-solid fa-plus"></i> Agregar Producto
+           </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid mt-4">
+    {% block body %}{% endblock %}
+</div>
+
+<footer class="mt-auto mb-4 text-center">
+  <span>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Backen Perfumeria</span>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
